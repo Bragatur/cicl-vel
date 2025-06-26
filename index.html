@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Mapa Ciclável</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      color: white;
+      background: url('https://pixabay.com/get/gb6fbd6d44b114beac426278553bdae07b5b0f1708b18aefb3e7b1e5e8877192344af3c12135a0e77ff0043bc1e6af67f_1920.jpg') no-repeat center center fixed;
+      background-size: cover;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    .overlay {
+      background-color: rgba(0, 0, 0, 0.55);
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 2rem 1rem;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .subtitle {
+      font-size: 1.1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    iframe {
+      width: 100%;
+      max-width: 1000px;
+      height: 70vh;
+      border: none;
+      border-radius: 10px;
+      margin-top: 1rem;
+    }
+
+    .flags {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .flag {
+      width: 32px;
+      height: 24px;
+      cursor: pointer;
+      border: 2px solid transparent;
+      border-radius: 4px;
+      transition: border 0.3s;
+    }
+
+    .flag:hover {
+      border-color: white;
+    }
+
+    footer {
+      background-color: rgba(0, 0, 0, 0.6);
+      text-align: center;
+      padding: 1rem;
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 1.5rem;
+      }
+      .subtitle {
+        font-size: 1rem;
+      }
+      iframe {
+        height: 60vh;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="overlay">
+    <h1 id="page-title">Mapa Ciclável de Braga</h1>
+    <div class="subtitle" id="subtitle">Consulte os locais para estacionar bicicletas e trotinetes</div>
+
+    <div class="flags">
+      <img src="https://flagcdn.com/pt.svg" class="flag" alt="Português" onclick="setLanguage('pt')">
+      <img src="https://flagcdn.com/fr.svg" class="flag" alt="Français" onclick="setLanguage('fr')">
+      <img src="https://flagcdn.com/es.svg" class="flag" alt="Español" onclick="setLanguage('es')">
+      <img src="https://flagcdn.com/de.svg" class="flag" alt="Deutsch" onclick="setLanguage('de')">
+      <img src="https://flagcdn.com/nl.svg" class="flag" alt="Nederlands" onclick="setLanguage('nl')">
+      <img src="https://flagcdn.com/it.svg" class="flag" alt="Italiano" onclick="setLanguage('it')">
+      <img src="https://flagcdn.com/pl.svg" class="flag" alt="Polski" onclick="setLanguage('pl')">
+      <img src="https://flagcdn.com/gb.svg" class="flag" alt="English" onclick="setLanguage('en')">
+    </div>
+
+    <iframe src="https://www.google.com/maps/d/embed?mid=1tTzYn7LE2l_L3FbZW8AbdP6HXdcm7hA&ehbc=2E312F&noprof=1"
+      allowfullscreen></iframe>
+  </div>
+
+  <footer>
+    Informação retirada da internet
+  </footer>
+
+  <script>
+    const translations = {
+      pt: {
+        title: 'Mapa Ciclável de Braga',
+        subtitle: 'Consulte os locais para estacionar bicicletas e trotinetes'
+      },
+      fr: {
+        title: 'Carte Cyclable de Braga',
+        subtitle: 'Consultez les emplacements pour garer les vélos et trottinettes'
+      },
+      es: {
+        title: 'Mapa Ciclable de Braga',
+        subtitle: 'Consulte los lugares para aparcar bicicletas y patinetes'
+      },
+      de: {
+        title: 'Fahrradkarte von Braga',
+        subtitle: 'Standorte für das Abstellen von Fahrrädern und E-Scootern'
+      },
+      nl: {
+        title: 'Fietskaart van Braga',
+        subtitle: 'Bekijk waar je fietsen en steps kunt parkeren'
+      },
+      it: {
+        title: 'Mappa Ciclabile di Braga',
+        subtitle: 'Consulta i luoghi per parcheggiare bici e monopattini'
+      },
+      pl: {
+        title: 'Mapa Rowerowa Bragi',
+        subtitle: 'Sprawdź miejsca do parkowania rowerów i hulajnóg'
+      },
+      en: {
+        title: 'Cycling Map of Braga',
+        subtitle: 'Find places to park bicycles and scooters'
+      }
+    };
+
+    function setLanguage(lang) {
+      const content = translations[lang] || translations['en'];
+      document.getElementById('page-title').textContent = content.title;
+      document.getElementById('subtitle').textContent = content.subtitle;
+    }
+
+    const browserLang = navigator.language.slice(0, 2).toLowerCase();
+    setLanguage(browserLang);
+  </script>
+</body>
+</html>
