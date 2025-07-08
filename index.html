@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Mapa de Estacionamento de Bicicletas</title>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <style>
     * {
@@ -34,12 +34,12 @@
 
     header h1 {
       margin: 0 0 0.5rem;
-      font-size: 2.2rem;
+      font-size: clamp(1.5rem, 4vw, 2.8rem);
     }
 
     header p {
       margin: 0;
-      font-size: 1.1rem;
+      font-size: clamp(1rem, 2.5vw, 1.2rem);
     }
 
     .map-container {
@@ -122,14 +122,6 @@
     }
 
     @media (min-width: 768px) {
-      header h1 {
-        font-size: 2.8rem;
-      }
-
-      header p {
-        font-size: 1.2rem;
-      }
-
       .map-container {
         height: 70vh;
       }
@@ -148,12 +140,12 @@
   </header>
 
   <div class="map-container">
-    <iframe src="https://www.google.com/maps/d/u/0/embed?mid=1tTzYn7LE2l_L3FbZW8AbdP6HXdcm7hA&ehbc=2E312F" allowfullscreen></iframe>
+    <iframe src="https://www.google.com/maps/d/u/0/embed?mid=11TNvZyzk5Ul-FLoxodJHzDJf4XEa9rA&ehbc=2E312F&ll=41.55064804215581%2C-8.409318015023848&z=14" allowfullscreen></iframe>
   </div>
 
   <div class="fab-wrapper" id="fab">
     <div class="fab-buttons" id="fab-buttons">
-      <a href="https://www.google.com/maps/d/u/0/viewer?mid=1tTzYn7LE2l_L3FbZW8AbdP6HXdcm7hA" target="_blank" class="fab-button">
+      <a href="https://www.google.com/maps/d/u/0/viewer?mid=11TNvZyzk5Ul-FLoxodJHzDJf4XEa9rA" target="_blank" class="fab-button">
         <i class="fas fa-map-location-dot"></i>
         <span id="map-button-text">Ver no Google Maps</span>
       </a>
@@ -165,7 +157,7 @@
         <i class="fas fa-link"></i>
         <span id="copy-text">Copiar Link</span>
       </button>
-      <a href="https://www.google.com/maps/d/kml?forcekml=1&mid=1tTzYn7LE2l_L3FbZW8AbdP6HXdcm7hA" download class="fab-button">
+      <a href="https://www.google.com/maps/d/kml?forcekml=1&mid=11TNvZyzk5Ul-FLoxodJHzDJf4XEa9rA" download class="fab-button">
         <i class="fas fa-download"></i>
         <span id="download-text">Descarregar Mapa</span>
       </a>
@@ -226,7 +218,7 @@
     document.getElementById('download-text').textContent = dict.download;
     document.getElementById('footer-text').textContent = dict.footer;
 
-    const mapLink = "https://www.google.com/maps/d/u/0/viewer?mid=1tTzYn7LE2l_L3FbZW8AbdP6HXdcm7hA";
+    const mapLink = "https://www.google.com/maps/d/u/0/viewer?mid=11TNvZyzk5Ul-FLoxodJHzDJf4XEa9rA";
     const message = encodeURIComponent(`${dict.title} – ${dict.subtitle}\n${mapLink}`);
     document.getElementById("whatsapp-button").href = `https://wa.me/?text=${message}`;
 
